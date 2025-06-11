@@ -28,25 +28,13 @@ struct FItems{
 	TSubclassOf<AActor> ItemClass;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int UID;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int Count;
 
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	FString Description;
 };
 
-USTRUCT(BlueprintType)
-struct FItemTypes {
-	GENERATED_BODY()
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TEnumAsByte<EItemTypes> ItemType;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FItems> ItemList;
-};
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -59,8 +47,22 @@ public:
 	UAC_InventorySystem();
 
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
-	TArray<FItemTypes> InventorySystem;
-	
+	TArray<FItems> Consumables;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<FItems> Parts;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<FItems> Materials;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<FItems> Tools;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	int MaxInventoryCapacity{ 0 };
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	int ItemCarryAmount{ 0 };
 
 protected:
 	// Called when the game starts
