@@ -28,7 +28,10 @@ struct FItems{
 	TSubclassOf<AActor> ItemClass;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int Count;
+	int Count{0};
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	int ItemWeight{1};
 
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	FString Description;
