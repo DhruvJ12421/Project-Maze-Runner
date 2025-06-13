@@ -38,6 +38,19 @@ struct FItems{
 };
 
 
+USTRUCT(BlueprintType)
+struct FDecreaseItem {
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	TEnumAsByte<EItemTypes> Type;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+
+	int index;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+
+	int Amount;
+};
+
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -75,5 +88,6 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
+	UFUNCTION(BlueprintCallable,meta=(ToolTip="This function wont work if duplicate actors were given or If index are wrong"))
+	bool DecreaseItems(const TArray<FDecreaseItem> Items);
 };
