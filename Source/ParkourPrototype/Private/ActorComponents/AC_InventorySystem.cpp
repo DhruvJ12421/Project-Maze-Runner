@@ -75,7 +75,9 @@ bool UAC_InventorySystem::DecreaseItems(const TArray<FDecreaseItem> Items)
 	for (int i = 0; i < length; i++) {
 
 		FDecreaseItem Temp = Items[i];
-
+		if (Temp.Amount <= 0) {
+			continue;
+		}
 		switch (Temp.Type) {
 			case EItemTypes::Consumables:
 			{
