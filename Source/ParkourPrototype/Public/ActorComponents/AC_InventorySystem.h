@@ -90,4 +90,7 @@ public:
 
 	UFUNCTION(BlueprintCallable,meta=(ToolTip="This function wont work if duplicate actors were given or If index are wrong"))
 	bool DecreaseItems(const TArray<FDecreaseItem> Items);
+
+	UFUNCTION(BlueprintCallable)
+	bool DecreaseItemsMeta(const TArray<FDecreaseItem> Items,TArray<FDecreaseItem>&MissingItems);
 };
