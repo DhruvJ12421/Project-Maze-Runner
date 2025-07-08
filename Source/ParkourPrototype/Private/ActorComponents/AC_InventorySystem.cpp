@@ -32,6 +32,57 @@ void UAC_InventorySystem::TickComponent(float DeltaTime, ELevelTick TickType, FA
 	// ...
 }
 
+bool UAC_InventorySystem::IsMissingItems(const TArray<FDecreaseItem> Items, TArray<FDecreaseItem>& MissingItems)
+{
+	int length = Items.Num();
+	bool CanProceed = true;
+
+	for (int i = 0; i < length; i++) {
+
+		FDecreaseItem Temp = Items[i];
+
+		switch (Temp.Type) {
+		case EItemTypes::Consumables:
+		{
+			if (Consumables[Temp.index].Count < Temp.Amount) {
+				MissingItems.Add(Temp);
+				CanProceed = false;
+			}
+			break;
+		}
+		case EItemTypes::Materials:
+		{
+			if (Materials[Temp.index].Count < Temp.Amount) {
+				MissingItems.Add(Temp);
+				CanProceed = false;
+			}
+			break;
+		}
+		case EItemTypes::Parts:
+		{
+			if (Parts[Temp.index].Count < Temp.Amount) {
+				MissingItems.Add(Temp);
+				CanProceed = false;
+			}
+			break;
+		}
+		case EItemTypes::Tools:
+		{
+			if (Tools[Temp.index].Count < Temp.Amount) {
+				MissingItems.Add(Temp);
+				CanProceed = false;
+			}
+			break;
+		}
+		}
+	}
+	if (!CanProceed) {
+		return false;
+	}
+	return true;
+	
+}
+
 bool UAC_InventorySystem::DecreaseItems(const TArray<FDecreaseItem> Items)
 {
 	int length = Items.Num();

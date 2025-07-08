@@ -88,6 +88,10 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	UFUNCTION(BlueprintCallable)
+	bool IsMissingItems(const TArray<FDecreaseItem> Items, TArray<FDecreaseItem>&MissingItems);
+
+
 	UFUNCTION(BlueprintCallable,meta=(ToolTip="This function wont work if duplicate actors were given or If index are wrong"))
 	bool DecreaseItems(const TArray<FDecreaseItem> Items);
 
