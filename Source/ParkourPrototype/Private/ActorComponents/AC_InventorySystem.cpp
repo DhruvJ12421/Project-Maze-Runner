@@ -77,9 +77,9 @@ bool UAC_InventorySystem::IsMissingItems(const TArray<FDecreaseItem> Items, TArr
 		}
 	}
 	if (!CanProceed) {
-		return false;
+		return true;
 	}
-	return true;
+	return false;
 	
 }
 
