@@ -100,7 +100,7 @@ Project Maze Runner was created by a four-person team:
 - [Shubham Jain](https://github.com/ShubhamJain9674)
 - Kishore V
   
-  My contributions included the day-night cycle, map creation, character-movement debugging, particle systems, widgets, procedural map generation, asset creation, mesh collision, and gameplay testing.
+My contributions included the day-night cycle, map creation, character-movement debugging, particle systems, widgets, procedural map generation, asset creation, mesh collision, and gameplay testing.
 
 ## Status
 
